@@ -7,13 +7,12 @@
 #include <string>
 #include <vector>
 
-const std::vector<std::string> phone_codes = {"25", "29", "33", "44"};
-
 bool is_digit(char c) {
-    return c >= '0' and c <= '9';
+    return c >= '0' && c <= '9';
 }
 
 bool is_valid_phone(const std::string& phone) {
+    const std::vector<std::string> phone_codes = {"25", "29", "33", "44"};
     if (phone.size() != 19) return false;
     if (phone.substr(0, 6) != "+375 (") return false;
     if (std::find(phone_codes.begin(), phone_codes.end(), phone.substr(6, 2)) == phone_codes.end()) return false;
